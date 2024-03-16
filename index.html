@@ -32,49 +32,15 @@
             
             const url = "https://arcg.is/0T5WmL";  // url of the geoJSON
 
-            const template = {
-              title: "Population",
-              content: "{Pop_2015} Million as of 2015"
-            };  // template (from ArcGIS example)
-
-            const renderer = {
-              type: "simple",
-              field: "Pop_2015",
-              symbol: {
-                type: "simple-marker",
-                color: "orange",
-                outline: {
-                  color: "white"
-                }
-              },
-              visualVariables: [{
-                type: "size",
-                field: "Pop_2015",
-                stops: [{
-                    value: 1,
-                    size: "4px"
-                  },
-                  {
-                    value: 50,
-                    size: "40px"
-                  }
-                ]
-              }]
-            };  // renderer (from ArcGIS example)
-
             const geojsonlayer = new GeoJSONLayer({
-                url: url,
-                popupTemplate: template,
-                renderer: renderer,
-                orderBy: {
-                  field: "Pop_2015"
-                }
+                url: url
             }); // GeoJSON data
             
             const mymap = new Map({
-                basemap: "arcgis/topographic", 
-                layers: [geojsonlayer]  // need to remember to add the geoJSON layer :p
+                basemap: "arcgis/topographic"
             });  // Map
+
+            mymap.add(geojsonlayer);
             
             const view = new MapView({
                 map: mymap,
