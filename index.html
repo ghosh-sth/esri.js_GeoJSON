@@ -31,15 +31,10 @@
             esriConfig.apiKey = "AAPKc7aaaa75c93648dfa8549f3f1a178f028HYltwEBVuXG_yIKyAFwQounw95_IRClbYiVn8dnai2vf1safpO1h1WXLguaj72r";  // API Key
             
             const url = "https://arcg.is/0T5WmL";  // url of the geoJSON
-            
+
             const template = {
               title: "Population",
-              content: "{} Million as of 2015",
-              fieldInfos: [
-                {
-                  fieldName: 'Pop_2015'  // doesn't seem like this *needs* a format specified to work?
-                }
-              ]
+              content: "{Pop_2015} Million as of 2015"
             };  // template (from ArcGIS example)
 
             const renderer = {
@@ -85,7 +80,7 @@
                 map: mymap,
                 container: "viewDiv",
                 center: [0,0],
-                zoom: 3 
+                zoom: 2 
             });  // Map viewer
 
         });
