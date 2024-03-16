@@ -1,0 +1,59 @@
+<!DOCTYPE html>   <!-- "helloesri.js" code used as template -->
+
+<html>
+
+  <head>
+
+    <meta charset="utf-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>Displaying GeoJSON data</title>
+    
+    <style>
+      html,
+      body,
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+    
+    <link rel="stylesheet" href="https://js.arcgis.com/4.29/esri/themes/dark/main.css">
+   
+    <script src="https://js.arcgis.com/4.29/"></script>
+    
+    <script>
+        require(["esri/config","esri/Map","esri/layers/GeoJSONLayer","esri/views/MapView"], function(esriConfig,Map,GeoJSONLayer,MapView) {
+            
+            esriConfig.apiKey = "AAPKc7aaaa75c93648dfa8549f3f1a178f028HYltwEBVuXG_yIKyAFwQounw95_IRClbYiVn8dnai2vf1safpO1h1WXLguaj72r";  // API Key
+            
+            const url = "https://ufl.maps.arcgis.com/home/item.html?id=fe5fc77c74a04877b493901c4e4db3a3";  // url of the geoJSON
+            
+            const geojsonlayer = new GeoJSONLayer({
+                url: url
+            }); // GeoJSON data
+            
+            const mymap = new Map({
+                basemap: "arcgis/imagery" // Satellite imagery basemap
+            });  // Map
+            
+            const view = new MapView({
+                map: mymap,
+                container: "viewDiv",
+                center: [0,0],
+                zoom: 2 
+            });  // Map viewer
+
+        });
+    </script>
+
+  </head>
+
+  <body>
+    <div id="viewDiv"></div>
+  </body>
+
+</html>
