@@ -32,6 +32,41 @@
             
             const url = "https://ufl.maps.arcgis.com/home/item.html?id=fe5fc77c74a04877b493901c4e4db3a3";  // url of the geoJSON
             
+            const template = {
+              title: "Population",
+              content: "{} Million people as of 2015",
+              fieldInfos: [
+                {
+                  fieldName: 'Pop_2015'
+                }
+              ]
+            };  // template (from ArcGIS example)
+
+            const renderer = {
+              type: "simple",
+              field: "Pop_2015",
+              symbol: {
+                type: "simple-marker",
+                color: "orange",
+                outline: {
+                  color: "white"
+                }
+              },
+              visualVariables: [{
+                type: "size",
+                field: "Pop_2015",
+                stops: [{
+                    value: 2.5,
+                    size: "4px"
+                  },
+                  {
+                    value: 8,
+                    size: "40px"
+                  }
+                ]
+              }]
+            };  // renderer (from ArcGIS example)
+            
             const geojsonlayer = new GeoJSONLayer({
                 url: url
             }); // GeoJSON data
