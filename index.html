@@ -41,8 +41,7 @@
                 }
               ]
             };  // template (from ArcGIS example)
-
-            /*
+              
             const renderer = {
               type: "simple",
               field: "Pop_2015",
@@ -67,17 +66,14 @@
                 ]
               }]
             };  // renderer (from ArcGIS example)
-            */
-
+            
             const geojsonlayer = new GeoJSONLayer({
-                url: url 
-                /*
+                url: url,
                 popupTemplate: template,
                 renderer: renderer,
                 orderBy: {
                   field: "Pop_2015"
                 }
-                */
             }); // GeoJSON data
             
             const mymap = new Map({
