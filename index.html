@@ -32,6 +32,7 @@
             
             const url = "https://arcg.is/0T5WmL";  // url of the geoJSON
             
+            /*
             const template = {
               title: "Population",
               content: "{} Million people as of 2015",
@@ -66,14 +67,17 @@
                 ]
               }]
             };  // renderer (from ArcGIS example)
-            
+            */
+
             const geojsonlayer = new GeoJSONLayer({
-                url: url,
+                url: url
+                /*
                 popupTemplate: template,
                 renderer: renderer,
                 orderBy: {
                   field: "Pop_2015"
                 }
+                */
             }); // GeoJSON data
             
             const mymap = new Map({
@@ -85,7 +89,7 @@
                 map: mymap,
                 container: "viewDiv",
                 center: [0,0],
-                zoom: 2 
+                zoom: 3 
             });  // Map viewer
 
         });
