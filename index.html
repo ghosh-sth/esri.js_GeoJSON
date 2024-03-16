@@ -32,13 +32,12 @@
             
             const url = "https://arcg.is/0T5WmL";  // url of the geoJSON
             
-            /*
             const template = {
               title: "Population",
-              content: "{} Million people as of 2015",
+              content: "{} Million as of 2015",
               fieldInfos: [
                 {
-                  fieldName: 'Pop_2015'
+                  fieldName: 'Pop_2015'  // doesn't seem like this *needs* a format specified to work?
                 }
               ]
             };  // template (from ArcGIS example)
@@ -67,17 +66,14 @@
                 ]
               }]
             };  // renderer (from ArcGIS example)
-            */
 
             const geojsonlayer = new GeoJSONLayer({
-                url: url
-                /*
+                url: url,
                 popupTemplate: template,
                 renderer: renderer,
                 orderBy: {
                   field: "Pop_2015"
                 }
-                */
             }); // GeoJSON data
             
             const mymap = new Map({
