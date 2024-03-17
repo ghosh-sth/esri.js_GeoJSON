@@ -33,7 +33,7 @@
             const url = "https://github.com/ghosh-sth/esri.js_GeoJSON/blob/main/MegaCities_AGOLgeocoded.geojson";  // url of the geoJSON
 
             const template = {
-              title: "MegaCities",
+              title: "Mega Cities",
               content: "{City} had a population of {Pop_2015}M in 2015."
             };  // Popup template (from Esri sample)
 
@@ -67,7 +67,7 @@
                 popupTemplate: template,
                 renderer: renderer,
                 orderBy: {
-                  field: "mag"
+                  field: "Pop_2015"
                 }
             });  // GeoJSON data
             
