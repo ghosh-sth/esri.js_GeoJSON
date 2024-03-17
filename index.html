@@ -32,12 +32,6 @@
             
             const url = "https://raw.githubusercontent.com/ghosh-sth/esri.js_GeoJSON/main/MegaCities_AGOLgeocoded.geojson";  // url of the geoJSON
 
-            // const url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
-            /*
-            The above url goes to the USGS geojson used in the Esri sample. It works - so I guess something is up with my file???
-            I really don't know what to do.  
-            */
-
             const template = {
               title: "Mega Cities",
               content: "{City} had a population of {Pop_2015}M in 2015."
@@ -70,12 +64,11 @@
            
             const geojsonlayer = new GeoJSONLayer({
                 url: url,
-                // popupTemplate: template,
+                popupTemplate: template,
                 renderer: renderer,
-                /*
                 orderBy: {
                   field: "Pop_2015"
-                } */
+                }
             });  // GeoJSON data
             
             const mymap = new Map({
