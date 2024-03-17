@@ -32,9 +32,44 @@
             
             const url = "https://github.com/ghosh-sth/esri.js_GeoJSON/blob/main/MegaCities_AGOLgeocoded.geojson";  // url of the geoJSON
 
+            const template = {
+              title: "MegaCities",
+              content: "{City} had a population of {Pop_2015}M in 2015."
+            };  // Popup template (from Esri sample)
+
+            const renderer = {
+              type: "simple",
+              field: "Pop_2015",
+              symbol: {
+                type: "simple-marker",
+                color: "orange",
+                outline: {
+                  color: "white"
+                }
+              },
+              visualVariables: [{
+                type: "size",
+                field: "Pop_2015",
+                stops: [{
+                    value: 1,
+                    size: "4px"
+                  },
+                  {
+                    value: 50,
+                    size: "40px"
+                  }
+                ]
+              }]
+            };  // Renderer (from Esri sample)
+           
             const geojsonlayer = new GeoJSONLayer({
-                url: url
-            }); // GeoJSON data
+                url: url,
+                popupTemplate: template,
+                renderer: renderer,
+                orderBy: {
+                  field: "mag"
+                }
+            });  // GeoJSON data
             
             const mymap = new Map({
                 basemap: "arcgis/topographic"
